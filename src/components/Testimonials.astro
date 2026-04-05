@@ -321,6 +321,9 @@ const testimonials = [
   const cards = document.querySelectorAll('#rotating-quotes .testimonials__card');
   renderCards(cards, getNextQuotes(3));
 
-  // Rotate every 12 seconds
-  setInterval(rotateQuotes, 12000);
+  // Rotate every 12 seconds (respect reduced motion)
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!prefersReducedMotion.matches) {
+    setInterval(rotateQuotes, 12000);
+  }
 </script>

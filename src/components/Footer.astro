@@ -5,8 +5,8 @@ const year = new Date().getFullYear();
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div class="site-footer__brand">
-      <a href="/" class="site-footer__logo" aria-label="23.4 degrees — home">
-        23.4<span class="degree">&deg;</span>
+      <a href="/" class="site-footer__logo" aria-label="23.4° — home">
+        23.4<span class="degree" aria-hidden="true">&deg;</span>
       </a>
       <p class="site-footer__tagline">
         Small tilts, big shifts.
@@ -58,7 +58,7 @@ const year = new Date().getFullYear();
 
   .site-footer__tagline {
     font-style: italic;
-    color: var(--color-stone);
+    color: var(--color-sand);
     margin-top: var(--space-xs);
   }
 
@@ -80,7 +80,7 @@ const year = new Date().getFullYear();
 
   .site-footer__legal {
     font-size: var(--text-sm);
-    color: var(--color-stone);
+    color: var(--color-sand);
   }
 
   .site-footer__location {
