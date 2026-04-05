@@ -1,0 +1,105 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="/" class="site-footer__logo" aria-label="23.4 degrees — home">
+        23.4<span class="degree">&deg;</span>
+      </a>
+      <p class="site-footer__tagline">
+        Small tilts, big shifts.
+      </p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <ul class="site-footer__nav-list">
+        <li><a href="#services">What We Do</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Kind Words</a></li>
+        <li><a href="#contact">Get In Touch</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__legal">
+      <p>&copy; {year} 23.4&deg;. All rights reserved, like.</p>
+      <p class="site-footer__location">
+        Built in Tameside, Manchester&ensp;·&ensp;Fuelled by tea
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: var(--space-lg);
+    background-color: var(--color-charcoal);
+    color: var(--color-sand);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .site-footer__logo {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    color: var(--color-cream);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .degree {
+    font-size: 0.6em;
+    vertical-align: super;
+  }
+
+  .site-footer__tagline {
+    font-style: italic;
+    color: var(--color-stone);
+    margin-top: var(--space-xs);
+  }
+
+  .site-footer__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .site-footer__nav-list a {
+    color: var(--color-sand);
+    font-size: var(--text-sm);
+    transition: color var(--duration) var(--ease-out);
+  }
+
+  .site-footer__nav-list a:hover {
+    color: var(--color-cream);
+  }
+
+  .site-footer__legal {
+    font-size: var(--text-sm);
+    color: var(--color-stone);
+  }
+
+  .site-footer__location {
+    margin-top: 0.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+    }
+
+    .site-footer__nav-list {
+      flex-direction: row;
+      gap: var(--space-md);
+    }
+
+    .site-footer__legal {
+      text-align: right;
+    }
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+const services = [
+  {
+    number: '01',
+    title: 'Website Design & Development',
+    description: 'We build websites that actually work. Not just pretty pictures in Figma that make everyone go "ooh" in the meeting and then sit in a Google Drive forever. Proper, responsive, accessible sites built with clean code and a healthy disregard for unnecessary JavaScript.',
+  },
+  {
+    number: '02',
+    title: 'Search Engine Optimisation',
+    description: 'Your perfectly adequate SEO tinkerers. We won\'t promise you page one by Tuesday, because anyone who does is lying. What we will do is the boring-but-effective stuff: solid technical foundations, decent content strategy, and keeping an eye on what\'s actually moving the needle.',
+  },
+  {
+    number: '03',
+    title: 'Tailored AI Solutions',
+    description: 'We build bespoke AI tools that solve real problems — automating the tedious bits so your team can focus on the stuff that matters. No buzzwords, no "leveraging synergies". Just useful tools that work.',
+  },
+  {
+    number: '04',
+    title: 'Craft CMS Consultancy',
+    description: 'Craft CMS is proper good, and we\'ve been building with it for years. If you need a content management system that doesn\'t make your editors want to cry, we\'re your lot. Setup, migration, custom plugins — the full works.',
+  },
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <header class="services__header">
+      <p class="services__kicker">Services</p>
+      <h2 class="services__title">What we're fairly good at</h2>
+    </header>
+
+    <ul class="services__list">
+      {services.map(({ number, title, description }) => (
+        <li class="services__item">
+          <span class="services__number">{number}</span>
+          <h3 class="services__item-title">{title}</h3>
+          <p class="services__item-desc">{description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding-block: var(--space-xl);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-inv);
+  }
+
+  .services__header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .services__kicker {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-clay);
+    margin-bottom: var(--space-xs);
+  }
+
+  .services__title {
+    font-size: var(--text-2xl);
+    color: var(--color-cream);
+  }
+
+  .services__list {
+    display: grid;
+    gap: 1px;
+    background-color: var(--color-moss-light);
+  }
+
+  .services__item {
+    display: grid;
+    gap: var(--space-sm);
+    padding-block: var(--space-md);
+    background-color: var(--color-bg-dark);
+  }
+
+  .services__number {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-clay);
+  }
+
+  .services__item-title {
+    font-size: var(--text-xl);
+    color: var(--color-cream);
+  }
+
+  .services__item-desc {
+    max-width: 60ch;
+    line-height: 1.7;
+    color: var(--color-sand);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .services__item {
+      grid-template-columns: auto 1fr 2fr;
+      align-items: start;
+      gap: var(--space-md);
+    }
+  }
+</style>
