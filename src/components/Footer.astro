@@ -7,6 +7,7 @@ const year = new Date().getFullYear();
 
     <div class="site-footer__top">
       <a href="/" class="site-footer__logo" aria-label="23.4° — home">
+        <svg aria-hidden="true" class="site-footer__logo-device" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.29 101.86"><path fill="currentColor" d="M124.29,22.79l-16.83,4.47C96.16,4.52,68.79-5.69,45.2,4.52l-1.96-4.52C17.11,11.31,4.69,41.11,14.64,67.46L0,76.58l16.67-4.43c12.4,25.3,42.63,36.64,68.76,25.33l-1.96-4.52c23.59-10.21,34.89-37.14,26.04-60.96l14.78-9.2ZM81.88,89.29c-22.36,9.67-48.42-.64-58.09-23-9.68-22.36.64-48.42,23-58.09,22.36-9.68,48.42.64,58.09,23,9.68,22.36-.64,48.42-23,58.09Z"/></svg>
         23.4<span class="degree" aria-hidden="true">&deg;</span>
       </a>
       <p class="site-footer__tagline">Slightly Tilted.</p>
@@ -54,7 +55,15 @@ const year = new Date().getFullYear();
     color: var(--color-mist);
     text-decoration: none;
     line-height: 1;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .site-footer__logo-device {
+    height: 1.1em;
+    width: auto;
+    flex-shrink: 0;
   }
 
   .degree {
