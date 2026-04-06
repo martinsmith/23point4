@@ -56,6 +56,13 @@ const navItems = [
       header?.classList.remove('is-open');
     });
   });
+
+  // Solid background on scroll
+  const onScroll = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 </script>
 
 <style>
@@ -66,11 +73,18 @@ const navItems = [
     right: 0;
     z-index: 100;
     padding-block: var(--space-sm);
-    transition: background-color var(--duration) var(--ease-out);
+    transition: background-color var(--duration) var(--ease-out),
+                box-shadow var(--duration) var(--ease-out);
+  }
+
+  .site-header.is-scrolled {
+    background-color: var(--color-mist);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
   }
 
   .site-header.is-open {
     background-color: var(--color-pennine);
+    box-shadow: none;
   }
 
   .site-header__inner {
@@ -80,7 +94,7 @@ const navItems = [
   }
 
   .site-header__logo {
-    font-family: var(--font-serif);
+    font-family: var(--font-logo);
     font-size: var(--text-xl);
     color: var(--color-heading);
     text-decoration: none;
