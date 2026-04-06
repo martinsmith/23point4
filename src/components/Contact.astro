@@ -6,6 +6,9 @@
       <p class="contact__subtitle">
         We'll get back to you within a working day. We'd love to hear about what you're working on.
       </p>
+      <a href="tel:07428443110" class="contact__phone">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i> 07428 443110
+      </a>
     </header>
 
     <form class="contact__form" action="#" method="post" data-reveal>
@@ -90,6 +93,21 @@
     color: var(--color-text-muted);
     max-width: 50ch;
     line-height: 1.6;
+  }
+
+  .contact__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: var(--space-sm);
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .contact__phone:hover {
+    color: var(--color-bracken-light);
   }
 
   .contact__form {

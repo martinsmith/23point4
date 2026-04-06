@@ -11,6 +11,15 @@ const year = new Date().getFullYear();
         23.4<span class="degree" aria-hidden="true">&deg;</span>
       </a>
       <p class="site-footer__tagline">Slightly Tilted.</p>
+      <div class="site-footer__contact">
+        <a href="tel:07428443110" class="site-footer__phone">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> 07428 443110
+        </a>
+        <a href="#" class="site-footer__email" data-u="info" data-d="23point4" data-t="uk" aria-label="Email us">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span class="site-footer__email-text">info&#91;at&#93;23point4.uk</span>
+        </a>
+      </div>
     </div>
 
     <div class="site-footer__divider" aria-hidden="true"></div>
@@ -34,6 +43,19 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 
+<script>
+  const emailLink = document.querySelector('.site-footer__email') as HTMLAnchorElement | null;
+  if (emailLink) {
+    const u = emailLink.dataset.u;
+    const d = emailLink.dataset.d;
+    const t = emailLink.dataset.t;
+    const email = `${u}@${d}.${t}`;
+    emailLink.href = `mailto:${email}`;
+    const span = emailLink.querySelector('.site-footer__email-text');
+    if (span) span.textContent = email;
+  }
+</script>
+
 <style>
   .site-footer {
     padding-block: var(--space-xl) var(--space-lg);
@@ -46,7 +68,14 @@ const year = new Date().getFullYear();
 
   /* Top — logo + strapline */
   .site-footer__top {
-    padding-bottom: var(--space-lg);
+    padding-bottom: 1rem;
+  }
+
+  .site-footer__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-xs);
   }
 
   .site-footer__logo {
@@ -106,6 +135,34 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__nav-list a:hover {
+    color: var(--color-mist);
+  }
+
+  .site-footer__phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
+    color: var(--color-bracken-light);
+    text-decoration: none;
+  }
+
+  .site-footer__phone:hover {
+    color: var(--color-mist);
+  }
+
+  .site-footer__email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
+    color: var(--color-bracken-light);
+    text-decoration: none;
+  }
+
+  .site-footer__email:hover {
     color: var(--color-mist);
   }
 
