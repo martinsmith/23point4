@@ -20,25 +20,25 @@ const testimonials = [
 
 <section id="testimonials" class="testimonials">
   <div class="container">
-    <header class="testimonials__header">
+    <header class="testimonials__header" data-reveal>
       <p class="testimonials__kicker">Kind Words</p>
       <h2 class="testimonials__title">What people have said</h2>
     </header>
 
     <ul class="testimonials__list testimonials__list--rotating" id="rotating-quotes">
-      <li class="testimonials__card">
+      <li class="testimonials__card" data-reveal>
         <blockquote class="testimonials__quote"><p></p></blockquote>
         <footer class="testimonials__attribution">
           <span class="testimonials__role"></span>
         </footer>
       </li>
-      <li class="testimonials__card">
+      <li class="testimonials__card" data-reveal>
         <blockquote class="testimonials__quote"><p></p></blockquote>
         <footer class="testimonials__attribution">
           <span class="testimonials__role"></span>
         </footer>
       </li>
-      <li class="testimonials__card">
+      <li class="testimonials__card" data-reveal>
         <blockquote class="testimonials__quote"><p></p></blockquote>
         <footer class="testimonials__attribution">
           <span class="testimonials__role"></span>
@@ -46,13 +46,13 @@ const testimonials = [
       </li>
     </ul>
 
-    <header class="testimonials__header testimonials__header--actual">
+    <header class="testimonials__header testimonials__header--actual" data-reveal>
       <h2 class="testimonials__title">What people have actually said <em>about us</em></h2>
     </header>
 
     <ul class="testimonials__list">
       {testimonials.map(({ quote, name, role }) => (
-        <li class="testimonials__card">
+        <li class="testimonials__card" data-reveal>
           <blockquote class="testimonials__quote">
             <p>"{quote}"</p>
           </blockquote>

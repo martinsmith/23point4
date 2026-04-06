@@ -171,6 +171,17 @@ button {
   border-width: 0;
 }
 
+/* --- Scroll Animations --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(48px);
+  will-change: opacity, transform;
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
   *,
