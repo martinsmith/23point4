@@ -7,28 +7,34 @@
 
 /* --- Custom Properties --- */
 :root {
-  /* Earthy palette */
-  --color-cream:       #F5F0E8;
-  --color-sand:        #E8E0D0;
-  --color-moss:        #2C3E2D;
-  --color-moss-light:  #3D5240;
-  --color-bark:        #5C4A3A;
-  --color-clay:        #8B5229;
-  --color-clay-light:  #D99A55;
-  --color-slate:       #4A4A48;
-  --color-charcoal:    #1E1E1C;
-  --color-stone:       #6B6B66;
-  --color-white:       #FEFCF9;
+  /*
+   * Palette: Saddleworth in October
+   *
+   * Pulled from Dovestone at dawn, bracken on Pots 'n' Pans,
+   * gritstone in afternoon sun, overcast sky above the Pennines.
+   * The 23.4° that gives us seasons — these are ours.
+   */
+  --color-mist:        #F6F4EF;          /* Morning fog over the reservoir   */
+  --color-drizzle:     #EDEBE4;          /* The sky on a soft day             */
+  --color-pennine:     #354A38;          /* Deep valley green                 */
+  --color-moorland:    #4A6349;          /* Heather fading on the moor        */
+  --color-gritstone:   #978573;          /* Warm stone in low sun             */
+  --color-bracken:     #B5703B;          /* Turning bracken, October          */
+  --color-bracken-light: #D4A36A;        /* Bracken catching golden hour      */
+  --color-slate:       #566063;          /* Rooftops through drizzle          */
+  --color-millstone:   #292826;          /* Dark grit, Stanage Edge           */
+  --color-overcast:    #848780;          /* Silver-green sky                  */
+  --color-snow:        #FEFCF8;          /* First frost on the moor           */
 
   /* Semantic */
-  --color-bg:          var(--color-cream);
-  --color-bg-dark:     var(--color-moss);
-  --color-bg-alt:      var(--color-sand);
-  --color-text:        var(--color-charcoal);
-  --color-text-muted:  var(--color-stone);
-  --color-text-inv:    var(--color-cream);
-  --color-accent:      var(--color-clay);
-  --color-heading:     var(--color-moss);
+  --color-bg:          var(--color-mist);
+  --color-bg-dark:     var(--color-pennine);
+  --color-bg-alt:      var(--color-drizzle);
+  --color-text:        var(--color-millstone);
+  --color-text-muted:  var(--color-overcast);
+  --color-text-inv:    var(--color-mist);
+  --color-accent:      var(--color-bracken);
+  --color-heading:     var(--color-pennine);
 
   /* Typography */
   --font-serif:   'DM Serif Display', Georgia, 'Times New Roman', serif;
@@ -104,7 +110,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-bark);
+  color: var(--color-gritstone);
 }
 
 ul, ol {
@@ -132,8 +138,8 @@ button {
   padding: 0.75rem 1.25rem;
   font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--color-cream);
-  background-color: var(--color-moss);
+  color: var(--color-mist);
+  background-color: var(--color-pennine);
   border-radius: 0.375rem;
   z-index: 200;
   transition: top var(--duration) var(--ease-out);
@@ -141,7 +147,7 @@ button {
 
 .skip-link:focus {
   top: var(--space-sm);
-  color: var(--color-cream);
+  color: var(--color-mist);
 }
 
 /* --- Utility --- */
