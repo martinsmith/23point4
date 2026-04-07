@@ -15,10 +15,9 @@ import IconPaperPlane from './icons/IconPaperPlane.astro';
       </a>
     </SectionHeader>
 
-    <form class="contact__form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-reveal>
-      <input type="hidden" name="form-name" value="contact" />
-      <p class="sr-only">
-        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+    <form class="contact__form" action="/contact.php" method="POST" data-reveal>
+      <p class="sr-only" aria-hidden="true">
+        <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
       </p>
       <div class="contact__field">
         <label for="contact-name" class="contact__label">Your Name</label>
@@ -66,8 +65,27 @@ import IconPaperPlane from './icons/IconPaperPlane.astro';
         </button>
       </div>
     </form>
+
+    <div class="contact__feedback contact__feedback--success" hidden>
+      <p><strong>Sent!</strong> We'll get back to you within a working day. Cheers.</p>
+    </div>
+    <div class="contact__feedback contact__feedback--error" hidden>
+      <p><strong>Something went wrong.</strong> Give us a ring on <a href="tel:07428443110">07428 443110</a> instead.</p>
+    </div>
   </div>
 </section>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('form');
+
+  if (status === 'success' || status === 'error') {
+    const feedback = document.querySelector(`.contact__feedback--${status}`);
+    const form = document.querySelector('.contact__form');
+    if (feedback) feedback.removeAttribute('hidden');
+    if (status === 'success' && form) form.setAttribute('hidden', '');
+  }
+</script>
 
 <style>
   .contact {
@@ -81,6 +99,31 @@ import IconPaperPlane from './icons/IconPaperPlane.astro';
   .contact__inner {
     display: grid;
     gap: var(--space-lg);
+  }
+
+  .contact__feedback {
+    padding: var(--space-md);
+    border-radius: 0.5rem;
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-top: var(--space-md);
+  }
+
+  .contact__feedback a {
+    color: inherit;
+    font-weight: 600;
+  }
+
+  .contact__feedback--success {
+    background-color: rgba(53, 74, 56, 0.15);
+    border: 1px solid rgba(53, 74, 56, 0.3);
+    color: var(--color-heading);
+  }
+
+  .contact__feedback--error {
+    background-color: rgba(140, 60, 50, 0.1);
+    border: 1px solid rgba(140, 60, 50, 0.25);
+    color: var(--color-heading);
   }
 
   .contact__subtitle {
