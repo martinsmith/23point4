@@ -1,4 +1,9 @@
 ---
+import LogoDevice from './LogoDevice.astro';
+import IconPhone from './icons/IconPhone.astro';
+import IconEnvelope from './icons/IconEnvelope.astro';
+import { navItems } from '../data/navigation';
+
 const year = new Date().getFullYear();
 ---
 
@@ -7,16 +12,16 @@ const year = new Date().getFullYear();
 
     <div class="site-footer__top">
       <a href="/" class="site-footer__logo" aria-label="23.4° — home">
-        <svg aria-hidden="true" class="site-footer__logo-device" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.86 124.29"><path fill="currentColor" d="M79.07,0l-9.2,14.78c-23.82-8.84-50.75,2.45-60.96,26.04l-4.52-1.96c-11.31,26.13.03,56.36,25.33,68.76l-4.43,16.67,9.12-14.64c26.36,9.96,56.16-2.47,67.46-28.6l-4.52-1.96c10.21-23.59,0-50.96-22.75-62.27L79.07,0ZM93.67,77.5c-9.67,22.36-35.74,32.68-58.09,23S2.9,64.77,12.57,42.41,48.31,9.73,70.67,19.41c22.36,9.68,32.68,35.74,23,58.09Z"/></svg>
+        <LogoDevice class="site-footer__logo-device" />
         23.4<span class="degree" aria-hidden="true">&deg;</span>
       </a>
       <p class="site-footer__tagline">Slightly Tilted.</p>
       <div class="site-footer__contact">
         <a href="tel:07428443110" class="site-footer__phone">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i> 07428 443110
+          <IconPhone /> 07428 443110
         </a>
         <a href="#" class="site-footer__email" data-u="info" data-d="23point4" data-t="uk" aria-label="Email us">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <IconEnvelope />
           <span class="site-footer__email-text">info&#91;at&#93;23point4.uk</span>
         </a>
       </div>
@@ -27,10 +32,9 @@ const year = new Date().getFullYear();
     <div class="site-footer__bottom">
       <nav class="site-footer__nav" aria-label="Footer">
         <ul class="site-footer__nav-list">
-          <li><a href="#services">What We Do</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#testimonials">Kind Words</a></li>
-          <li><a href="#contact">Get In Touch</a></li>
+          {navItems.map(({ label, href }) => (
+            <li><a href={href}>{label}</a></li>
+          ))}
         </ul>
       </nav>
 
@@ -89,7 +93,7 @@ const year = new Date().getFullYear();
     gap: 0.4rem;
   }
 
-  .site-footer__logo-device {
+  .site-footer__logo :global(.site-footer__logo-device) {
     height: 1.1em;
     width: auto;
     flex-shrink: 0;

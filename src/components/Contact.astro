@@ -1,17 +1,25 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import IconPhone from './icons/IconPhone.astro';
+import IconPaperPlane from './icons/IconPaperPlane.astro';
+---
+
 <section id="contact" class="contact">
   <div class="container contact__inner">
-    <header class="contact__header" data-reveal>
-      <p class="contact__kicker">Get In Touch</p>
-      <h2 class="contact__title">Go on then, drop us a line</h2>
+    <SectionHeader kicker="Get In Touch" title="Go on then, drop us a line">
       <p class="contact__subtitle">
         We'll get back to you within a working day. We'd love to hear about what you're working on.
       </p>
       <a href="tel:07428443110" class="contact__phone">
-        <i class="fa-solid fa-phone" aria-hidden="true"></i> 07428 443110
+        <IconPhone /> 07428 443110
       </a>
-    </header>
+    </SectionHeader>
 
-    <form class="contact__form" action="#" method="post" data-reveal>
+    <form class="contact__form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-reveal>
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="sr-only">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
       <div class="contact__field">
         <label for="contact-name" class="contact__label">Your Name</label>
         <input
@@ -54,7 +62,7 @@
 
       <div class="contact__field contact__field--full">
         <button type="submit" class="contact__submit">
-          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send it over
+          <IconPaperPlane /> Send it over
         </button>
       </div>
     </form>
@@ -73,20 +81,6 @@
   .contact__inner {
     display: grid;
     gap: var(--space-lg);
-  }
-
-  .contact__kicker {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-accent);
-    margin-bottom: var(--space-xs);
-  }
-
-  .contact__title {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--space-xs);
   }
 
   .contact__subtitle {

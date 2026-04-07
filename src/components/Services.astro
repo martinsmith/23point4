@@ -1,4 +1,7 @@
 ---
+import DecoOverlay from './DecoOverlay.astro';
+import SectionHeader from './SectionHeader.astro';
+
 const services = [
   {
     number: '01',
@@ -29,14 +32,9 @@ const services = [
 ---
 
 <section id="services" class="services">
-  <div class="services__deco" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.86 124.29"><path fill="currentColor" d="M79.07,0l-9.2,14.78c-23.82-8.84-50.75,2.45-60.96,26.04l-4.52-1.96c-11.31,26.13.03,56.36,25.33,68.76l-4.43,16.67,9.12-14.64c26.36,9.96,56.16-2.47,67.46-28.6l-4.52-1.96c10.21-23.59,0-50.96-22.75-62.27L79.07,0ZM93.67,77.5c-9.67,22.36-35.74,32.68-58.09,23S2.9,64.77,12.57,42.41,48.31,9.73,70.67,19.41c22.36,9.68,32.68,35.74,23,58.09Z"/></svg>
-  </div>
+  <DecoOverlay color="var(--color-mist)" opacity={0.03} />
   <div class="container">
-    <header class="services__header" data-reveal>
-      <p class="services__kicker">Services</p>
-      <h2 class="services__title">What we're fairly good at</h2>
-    </header>
+    <SectionHeader kicker="Services" title="What we're fairly good at" variant="dark" />
 
     <ul class="services__list">
       {services.map(({ number, title, description }) => (
@@ -62,47 +60,9 @@ const services = [
     color: var(--color-text-inv);
   }
 
-  .services__deco {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 70%;
-    width: auto;
-    z-index: 0;
-    color: var(--color-mist);
-    opacity: 0.03;
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .services__deco svg {
-    height: 100%;
-    width: auto;
-    display: block;
-  }
-
   .services > .container {
     position: relative;
     z-index: 1;
-  }
-
-  .services__header {
-    margin-bottom: var(--space-lg);
-  }
-
-  .services__kicker {
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-bracken-light);
-    margin-bottom: var(--space-xs);
-  }
-
-  .services__title {
-    font-size: var(--text-2xl);
-    color: var(--color-mist);
   }
 
   .services__list {

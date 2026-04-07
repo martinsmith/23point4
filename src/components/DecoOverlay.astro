@@ -1,0 +1,34 @@
+---
+import LogoDevice from './LogoDevice.astro';
+
+interface Props {
+  color?: string;
+  opacity?: number;
+}
+
+const { color = 'var(--color-pennine)', opacity = 0.03 } = Astro.props;
+---
+
+<div class="deco-overlay" aria-hidden="true" style={`color: ${color}; opacity: ${opacity}`}>
+  <LogoDevice />
+</div>
+
+<style>
+  .deco-overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: auto;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .deco-overlay :global(svg) {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+</style>

@@ -2,8 +2,7 @@
    23.4° — Global Styles
    ========================================================================== */
 
-/* --- Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Slabo+27px&family=Open+Sans:wght@300;400;500;600&display=swap');
+/* --- Fonts --- loaded via <link> in Base.astro for optimal performance */
 
 /* --- Custom Properties --- */
 :root {
@@ -175,7 +174,6 @@ button {
 [data-reveal] {
   opacity: 0;
   transform: translateY(48px);
-  will-change: opacity, transform;
 }
 
 [data-reveal="fade"] {

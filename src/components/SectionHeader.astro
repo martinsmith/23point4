@@ -1,0 +1,43 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  variant?: 'dark' | 'light';
+  class?: string;
+}
+
+const { kicker, title, variant = 'light', class: className } = Astro.props;
+---
+
+<header class:list={['section-header', { 'section-header--dark': variant === 'dark' }, className]} data-reveal>
+  {kicker && <p class="section-header__kicker">{kicker}</p>}
+  <h2 class="section-header__title" set:html={title} />
+  <slot />
+</header>
+
+<style>
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .section-header__kicker {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .section-header--dark .section-header__kicker {
+    color: var(--color-bracken-light);
+  }
+
+  .section-header__title {
+    font-size: var(--text-2xl);
+  }
+
+  .section-header--dark .section-header__title {
+    color: var(--color-mist);
+  }
+</style>
